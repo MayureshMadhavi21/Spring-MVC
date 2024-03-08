@@ -1,0 +1,75 @@
+MVC - Model View Controller design pattern > way to organize code in application.
+
+A Spring MVC is a sub-framework of Spring framework which is used to build a web application.
+It is built on top of Servlet API.
+It follows the Model-View-Controller design pattern.
+model - data layer
+View - presentation layer
+Controller - Interface b/w model and view
+
+why spring mvc?
+Separate each role model,view,controller.
+powerful configuaration.
+It implements all the basic feature of core spring framework like Inversion of Control,Dependency Injection.
+Rapid application development.
+Spring mvc is flexible,easy to test and much features.
+
+client > request > server > Front controller(DispatcherServlet) > Delegate the Request based on mapping > controller(handles the request) >
+        > Delegate rendering of response (model) > mapping model to view Template(view decided with help of view Resolver) > 
+        view Template shown to client
+        
+Setting of Apache tomcat server > Download Apache tomcat from web > in eclipse > window > preferences > server > runtime environmenr > add >
+apache tomcat choose version > choose directory(parent of bin) > apply and close
+
+Create new Project:
+File > new > project > Maven Project > Artifact id (maven-archetype-webapp) > finish
+If error in index.jsp as it don't get server Runtime library > resolve by > right click on project folder > build path > configure build path > add library > server runtime > choose Tomcat > apply 
+ 
+ Add spring mvc depedency
+ 
+ Spring MVC Application Creation Steps
+ Configure the dispatcher servlet in web.xml
+ Create Spring configuration file.(inside web-inf > spring-servlet.xml) > name should be > servlet_name-servlet.xml
+ servlet_name is DispatcherServlet name which is <servlet-name>spring</servlet-name>
+ Configure View Resolver(InternalResourceViewResolver) > (inside spring-servlet.xml)
+ ex - /WEB-INF/views/hello.jsp
+ Create Controller.
+ Create a view.
+ 
+ 
+JSP Scripting elements
+The scripting elements provides the ability to insert java code inside the jsp. There are three types of scripting elements
+A scriptlet tag is used to execute java source code in JSP
+
+Syntax:- <%  java source code %> 
+<body>  
+<% out.print("welcome to jsp"); %>  
+</body>  
+
+The code placed within JSP expression tag is written to the output stream of the response. So you need not write out.print() to write data. It is mainly used to print the values of variable or method.
+
+Syntax:- <%=  statement %>  
+<body>  
+<%= "welcome to jsp" %>  
+</body>
+
+for more tags:- https://www.techguruspeaks.com/jsp-tags/
+
+RequestMapping("/home")
+RequestMapping(path="/home",method=RequestMethod.GET)
+
+
+how to redirect in spring mvc?
+1)HttpServletResponse
+2)redirect prefix
+3) RedirectView
+
+
+@PathVariable > annotation is used to bind method parameter to (URI template variable) > ({id})
+
+http://localhost:8080/project/book/34
+@RequestMapping("/book/{id}") 
+public String handler(@PathVariable("id") int id) 34>{id}>id > id = 34
+{
+}
+
